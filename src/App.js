@@ -45,11 +45,11 @@ class App extends Component {
           <Route  path="/livro/:livroSlug" element={props => {
               const livro = this.state.livros.find(
                  livro => livro.slug === props.match.params.livroSlug);
-                  if (livro) return <livro livro={livro} />;
+                  if (livro) return <Livro livro={livro} />;
                   else return <not found/>;
                  }} 
                />
-          <Route Component={NotFound} />
+          <Route component={NotFound} />
          </Routes>
         <Rodape />
       </Router>

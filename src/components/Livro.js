@@ -12,7 +12,7 @@ const Livro = ({ livro }) =>(
                     <li>ISBN: {livro.isbn}</li>
                     <li>Ano: {livro.ano}</li>
                     <li>Páginas: {livro.paginas}</li>
-                    <li>Preço: {livro.preco},00</li>
+                    <li>Preço: R${livro.preco},00</li>
                 </ul>
                 <hr />
                 <h3>Descrição do livro</h3>
