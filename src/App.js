@@ -9,23 +9,51 @@ import "./index.css";
 import Frontend from "./components/Frontend";
 import Programacao from "./components/Programacao";
 import Design from "./components/Design";
+import "./index.css";
+import Livro from "./components/Livro";
+import axios from "axios";
 class App extends Component {
+  state = {
+     livros :[]
+  };
+
+  async componentDidMount(){
+    try{
+      const {data: livros} = await axios.get("/api/todosOsLivros.json");
+      this.setState({ livros });      
+    } catch ( error ) {
+      console.log(error);
+      document
+      .querySelectorAll(".principal")[0]
+      .insertAdjacentHTML(
+        "beforeend",
+        "<p class='erro'>Mensagem de erro</p>"
+      );
+    }
+  }
+
   render(){
     return (
-      <Router>
-        <>
+      <Router>        
          <Topo />
          <Routes>
-          <Route  path="/" element={Home} />
-          <Route  path="/frontend" element={<Frontend />} />
-          <Route  path="/programacao" element={<Programacao />} />
-          <Route  path="/design" element={<Design />} />
-          <Route  path="/catalogo" element={<Catalogo />} />
+          <Route  path="/" element={<Home livros={this.state.livros} />} />
+          <Route  path="/frontend" element={<Frontend livros={this.state.livros} />} />
+          <Route  path="/programacao" element={<Programacao livros={this.state.livros} />} />
+          <Route  path="/design" element={<Design livros={this.state.livros} />} />
+          <Route  path="/catalogo" element={<Catalogo livros={this.state.livros} />} />
+          <Route  path="/livro/:livroSlug" element={props => {
+              const livro = this.state.livros.find(
+                 livro => livro.slug === props.match.params.livroSlug);
+                  if (livro) return <livro livro={livro} />;
+                  else return <not found/>;
+                 }} 
+               />
           <Route Component={NotFound} />
          </Routes>
-        </>
+        <Rodape />
       </Router>
-    )
+    );
   }
 }
 
