@@ -12,13 +12,13 @@ const Navegacao = () =>(
             <NavLink exact activeStyle={linkCorrente} to="/frontend">Frontend</NavLink>
         </li>
         <li>
-            <NavLink exact activeStyle={linkCorrente} to="/programacao">Programcao</NavLink>
+            <NavLink exact activeStyle={linkCorrente} to="/programacao">Programação</NavLink>
         </li>
         <li>
             <NavLink exact activeStyle={linkCorrente} to="/design">Design</NavLink>
         </li>
         <li>
-            <NavLink exact activeStyle={linkCorrente} to="/Catalogo">Catalogo</NavLink>
+            <NavLink exact activeStyle={linkCorrente} to="/catalogo">Catálogo</NavLink>
         </li>
     </ul>
 );

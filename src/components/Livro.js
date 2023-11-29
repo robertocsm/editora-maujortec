@@ -1,7 +1,7 @@
 import React from "react";
 const Livro = ({ livro }) =>(
     <main className="principal">
-        <div className="pag-livros">
+        <div className="pag-livro">
             <h2>{livro.titulo}</h2>
             <div className="livro">
                 <img 
@@ -17,9 +17,9 @@ const Livro = ({ livro }) =>(
                 <hr />
                 <h3>Descrição do livro</h3>
                 <p>{livro.descricao}</p>
-            </div>
+            </div>	
         </div>
-    </main>
+    </main>		
 );
 
 export default Livro;
