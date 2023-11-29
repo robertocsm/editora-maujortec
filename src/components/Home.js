@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Livro from "./Livro";
 const Home = ({ livros }) => ( 
     <main className="principal">
         <h2>Últimos lançamentos</h2>
@@ -16,16 +15,19 @@ const Home = ({ livros }) => (
                 {livros
                  .filter(c => c.slug === livro.slug)
                  .map(livro => 
-                        (
-                            <Link to={`/livro/${livro.slug}`} key={livro.id} >
-                            {
-                                <div className="detalhes">
-                                    <h3>{livro.titulo}</h3>
-                                    <p>{livro.descricao.slice(0, 130) + "..."}</p>
-                                    <p>Leia mais &gt;</p>
-                                </div>
-                            }
+                    (
+                        
+                        <li>
+                            <h3>{livro.titulo}</h3>
+                            <p>{livro.descricao.slice(0, 130) + "..."}</p>
+                            <Link to={`/livro/${livro.slug}`} key={livro.id} >                                {
+                                    <div className="detalhes">
+                                        <p>Leia mais &gt;</p>
+                                    </div>
+                                }
                             </Link>                             
+                        </li>
+                        
                         )
                     )
                 }

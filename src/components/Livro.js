@@ -1,7 +1,10 @@
 import React from "react";
-const Livro = ({ livro }) =>(
+import { Link } from "react-router-dom";
+const Livro = ({ livro }) => (
     <main className="principal">
         <div className="pag-livro">
+        <h2>404!</h2>
+        <p>Página não encontrada ou removida. <Link to="/">Ir para Home Page</Link></p>
             <h2>{livro.titulo}</h2>
             <div className="livro">
                 <img 

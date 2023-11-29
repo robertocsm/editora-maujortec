@@ -37,4 +37,4 @@ const Catalogo = ({ livros}) => {
     );
 };
 
-export default Catalogo
+export default Catalogo;

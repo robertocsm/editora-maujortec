@@ -46,7 +46,7 @@ class App extends Component {
               const livro = this.state.livros.find(
                  livro => livro.slug === props.match.params.livroSlug);
                   if (livro) return <Livro livro={livro} />;
-                  else return <not found/>;
+                  else return <NotFound/>;
                  }} 
                />
           <Route component={NotFound} />
