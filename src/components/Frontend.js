@@ -17,11 +17,11 @@ const Frontend = ({livros}) => (
                         .filter(c => c.slug === livro.slug)
                         .map(livro => (
                             <span key={livro.slug}>
-                                <Link to={`/livro/${livro.slug}`}>
+                                    <h3>{livro.titulo}</h3>
+                                    <p>{livro.descricao.slice(0.130)+"...."}</p>
+                                <Link to={`/livro1/${livro.slug}`} >
                                     {
                                         <div className="detalhes">
-                                            <h3>{livro.titulo}</h3>
-                                            <p>{livro.descricao.slice(0.130)+"...."}</p>
                                             <p>leia mais &gt;</p>
                                         </div>
                                     }

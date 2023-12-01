@@ -11,6 +11,7 @@ import Programacao from "./components/Programacao";
 import Design from "./components/Design";
 import "./index.css";
 import Livro from "./components/Livro";
+import Livro1 from "./components/Livro1";
 import axios from "axios";
 class App extends Component {
   state = {
@@ -20,7 +21,7 @@ class App extends Component {
   async componentDidMount(){
     try{
       const {data: livros} = await axios.get("/api/todosOsLivros.json");
-      this.setState({ livros });      
+      this.setState({ livros });     
     } catch ( error ) {
       console.log(error);
       document
@@ -42,9 +43,9 @@ class App extends Component {
           <Route  path="/programacao" element={<Programacao livros={this.state.livros} />} />
           <Route  path="/design" element={<Design livros={this.state.livros} />} />
           <Route  path="/catalogo" element={<Catalogo livros={this.state.livros} />} />
-          <Route  path="/livro/:livroSlug" element={props => {
-              const livro = this.state.livros.find(
-                 livro => livro.slug === props.match.params.livroSlug);
+          <Route  path="/livro1" element={<Livro1 />} />
+          <Route  path="/livro/:livroSlug"  element={ (props) => {                     
+              const livro = this.state.livros.find((livro) => livro.slug === props.match.params.livroSlug);
                   if (livro) return <Livro livro={livro} />;
                   else return <NotFound/>;
                  }} 

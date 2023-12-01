@@ -13,20 +13,18 @@ const Home = ({ livros }) => (
                        alt="Thurmbnail da capa do livro.." />
                 </div>
                 {livros
-                 .filter(c => c.slug === livro.slug)
-                 .map(livro => 
-                    (
-                        
-                        <li>
+                 .filter((c) => c.slug === livro.slug)
+                 .map((livro) => 
+                    (                       
+                        <span>
                             <h3>{livro.titulo}</h3>
                             <p>{livro.descricao.slice(0, 130) + "..."}</p>
-                            <Link to={`/livro/${livro.slug}`} key={livro.id} >                                {
-                                    <div className="detalhes">
-                                        <p>Leia mais &gt;</p>
-                                    </div>
-                                }
-                            </Link>                             
-                        </li>
+                            <Link to={`/livro/${livro.slug}`} key={livro.id} >
+                                <div className="detalhes">
+                                    <p>Leia mais &gt;</p>
+                                </div>
+                            </Link> 
+                        </span>
                         
                         )
                     )

@@ -21,7 +21,7 @@ const Navegacao = () =>(
             <NavLink exact activeStyle={linkCorrente} to="/catalogo">Catálogo</NavLink>
         </li>
         <li>
-            <NavLink exact activeStyle={linkCorrente} to="/livro">Livro</NavLink>
+            <NavLink exact activeStyle={linkCorrente} to="/livro1">Livro</NavLink>
         </li>
     </ul>
 );
