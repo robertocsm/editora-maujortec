@@ -12,7 +12,7 @@ import Design from "./components/Design";
 import "./index.css";
 import Livro from "./components/Livro";
 import Livro1 from "./components/Livro1";
-import axios from "axios";
+
 class App extends Component {
   state = {
      livros :[]
@@ -44,12 +44,15 @@ class App extends Component {
           <Route  path="/design" element={<Design livros={this.state.livros} />} />
           <Route  path="/catalogo" element={<Catalogo livros={this.state.livros} />} />
           <Route  path="/livro1" element={<Livro1 />} />
-          <Route  path="/livro/:livroSlug"  element={ (props) => {                     
-              const livro = this.state.livros.find((livro) => livro.slug === props.match.params.livroSlug);
-                  if (livro) return <Livro livro={livro} />;
-                  else return <NotFound/>;
-                 }} 
-               />
+          <Route  exact path="/livro/:livroSlug" render={props => {                     
+              const livro = this.state.livros.find(livro => livro.slug === props.match.params.livroSlug);
+                  if (livro) {
+                    return (<NotFound/>);
+                  }  else {
+                      return (<Livro livro={livro} />);
+                 }}
+                } 
+               />              
           <Route component={NotFound} />
          </Routes>
         <Rodape />
